@@ -1,3 +1,4 @@
-2 NAVBAR UI
-    Navbar.tsx (Container.tsx(logo.tsx, Search,tsx,UserMenu))
-        UserMenu (Avatar.tsx, MenuItem(if click is open ))
+3. solve hydration error
+    (when you reload and click in screen --> error : Text content dont match server-rendered HTML)
+    - create CilentOnly.tsx if hasMounted --> ok ales --> set null 
+    - wrap Navbar.tsx to layout.tsx 
