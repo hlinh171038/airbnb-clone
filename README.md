@@ -9,5 +9,28 @@
 
         - Button 
             interface (label, disabled, icon,onClick,small,outline )
+    - create hook register 
+        - npm i zutash
+        - recive isOpen, onClose,onOpen
+        - use method set of zutash
 
+    - create Register Model (create hook to use for register model)
+        - import to layout.tsx
+       
+        - axios to post data to server
+        - react-hook-form to validate form
+        - useRegister hook to open and close register block
+         - use Modal.tsx
+            - disabled={isLoading}   // 
+            - isOpen={registerModal.isOpen} 
+            - title='Register'
+            - actionLabel='Continue'
+            - onClose={registerModal.onClose}
+            - onSubmit={handleSubmit(onSubmit)}
+            - body={bodyContent} // create 
+            - footer={Footers} // create
+    - use toast to show error
+        - create provider use whole app
+        - wrap to layout.tsx
+        - use in ResgisterModal.tsx to catch err
 
