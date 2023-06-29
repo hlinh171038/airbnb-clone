@@ -9,7 +9,7 @@ const Search =()=>{
             border-[1px]
             w-full
             md:w-auto
-            py-2
+            py-1
             rounded-full
             shadow-sm
             hover:shadow-md

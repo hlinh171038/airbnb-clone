@@ -19,12 +19,14 @@ const UserMenu = () =>{
             <div className="flex flex-row items-center gap-3">
                 <div 
                     className="
+                        flex
+                        items-center
                         hidden
                         md:block
                         text-sm
                         font-semibold
-                        pt-3
-                        px-4
+                        px-2
+                        py-1
                         rounded-full
                         hover:bg-neutral-100
                         transition
