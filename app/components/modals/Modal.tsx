@@ -38,6 +38,7 @@ const Modal:React.FC<ModalProps> =({
 
     // handle close function
     const handleCloseModal =useCallback(()=>{
+        // prevent user click when isLoading
         if(disabled){
             return;
         }
@@ -135,7 +136,7 @@ const Modal:React.FC<ModalProps> =({
                             className="
                                 flex
                                 items-center
-                                p-6
+                                p-3
                                 rounded-t
                                 justify-center
                                 relative

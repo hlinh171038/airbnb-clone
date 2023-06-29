@@ -1,36 +1,9 @@
-4.Modal UI
-    - create Modal.tsx component
-        - interface ( isOpen?, onClose, onsubmit, title, body,footer,actionLable( pass name of action ex 'submit'),secondaryActionLabel(like action label, disable))
-        - useEffect (setShowModal(isOpen)) --> base on isOpen passing
-        - handle close function --> useCallback -->check if(disabled return ) onClose() , settimeout to smoother
-        - handle submit function ---> useCallback -->check if(disabled return ) onSubmit()
-        - handle secondary function -->useCallback -->check if(disabled return ) secondaryAction();
-        - if(!isOpen)  return null;
+5.Register function, mongodb, prisma
+    - Install and init prisma
+        1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started
+        2. Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb.
+        3. Run prisma db pull to turn your database schema into a Prisma schema.
+        4. Run prisma generate to generate the Prisma Client. You can then start querying your database.
 
-        - Button 
-            interface (label, disabled, icon,onClick,small,outline )
-    - create hook register 
-        - npm i zutash
-        - recive isOpen, onClose,onOpen
-        - use method set of zutash
 
-    - create Register Model (create hook to use for register model)
-        - import to layout.tsx
-       
-        - axios to post data to server
-        - react-hook-form to validate form
-        - useRegister hook to open and close register block
-         - use Modal.tsx
-            - disabled={isLoading}   // 
-            - isOpen={registerModal.isOpen} 
-            - title='Register'
-            - actionLabel='Continue'
-            - onClose={registerModal.onClose}
-            - onSubmit={handleSubmit(onSubmit)}
-            - body={bodyContent} // create 
-            - footer={Footers} // create
-    - use toast to show error
-        - create provider use whole app
-        - wrap to layout.tsx
-        - use in ResgisterModal.tsx to catch err
 
