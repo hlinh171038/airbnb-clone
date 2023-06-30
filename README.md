@@ -4,6 +4,16 @@
         2. Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb.
         3. Run prisma db pull to turn your database schema into a Prisma schema.
         4. Run prisma generate to generate the Prisma Client. You can then start querying your database.
+    -when finish intall yo uhave folder prisma/schema.prisma
+        - create all modal (user,account,listing)
+    - setup mongo db ( to take link)
+    - need utils 
+        - create libs/prismadb.ts 
+    - next-auth 
+        - config next-auth ([...nextauth].ts)
+    - post 
+        - api/register
+            
 
 
 
