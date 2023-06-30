@@ -49,8 +49,8 @@ export const authOptions: AuthOptions ={
 
                 // check password between them
                 const isCorrectPassword = await bcrypt.compare(
+                    credentials.password,
                     user.hashedPassword,
-                    credentials.password
                 )
 
                     // check not correct pass

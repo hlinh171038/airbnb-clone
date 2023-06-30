@@ -1,18 +1,17 @@
-5.Register function, mongodb, prisma
-    - Install and init prisma
-        1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started
-        2. Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb.
-        3. Run prisma db pull to turn your database schema into a Prisma schema.
-        4. Run prisma generate to generate the Prisma Client. You can then start querying your database.
-    -when finish intall yo uhave folder prisma/schema.prisma
-        - create all modal (user,account,listing)
-    - setup mongo db ( to take link)
-    - need utils 
-        - create libs/prismadb.ts 
-    - next-auth 
-        - config next-auth ([...nextauth].ts)
-    - post 
-        - api/register
+6.login UI
+    - create hook
+    - component
+    - wrap into layoyt
+    - add opoen to navbar
+    -component/ LoginModal
+        - onSubmit
+            -signIn from 'next-auth/react' (login suceess)
+    -but you cant take info of login
+        - actions/getCurrentUser.ts
+            - use getServerSession to get session
+            - check with user.prisma to get current user
+    -layout 
+        - use current user
             
 
 
