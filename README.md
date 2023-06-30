@@ -12,6 +12,8 @@
             - check with user.prisma to get current user
     -layout 
         - use current user
+        -signOut from 'next-auth/react
+
             
 
 
