@@ -5,6 +5,7 @@ import { useCallback, useState } from 'react'
 import MenuItem from './MenuItem'
 import useRegisterModal from '@/app/hooks/useRegisterModal'
 import useLoginModal from '@/app/hooks/useLoginModal'
+import useRentModal from '@/app/hooks/useRentModal'
 import {User} from '@prisma/client'
 import {signOut} from 'next-auth/react'
 import { SafeUser } from '@/app/types'
@@ -21,8 +22,18 @@ const UserMenu:React.FC<UserMenuProps>= ({
   
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal()
+    const rentModal = useRentModal()
     const [isOpen,setIsOpen] = useState<boolean>(false) 
-
+    
+    // when click to rent 
+    const onRent = useCallback(()=>{
+        // have not  current user ( require login)
+        if(!currentUser){
+            return loginModal.onOpen();
+        }
+        // if loggined --> hook to open the rent model
+        rentModal.onOpen()
+    },[currentUser,loginModal])
   
     const toggleOpen = useCallback(()=> {
         setIsOpen((value)=>!value)
@@ -34,6 +45,7 @@ const UserMenu:React.FC<UserMenuProps>= ({
         >   
             <div className="flex flex-row items-center gap-3">
                 <div 
+                    onClick={onRent}
                     className="
                         flex
                         items-center
@@ -96,7 +108,7 @@ const UserMenu:React.FC<UserMenuProps>= ({
                                  label='My properties'
                              />
                              <MenuItem 
-                                 onClick={()=>{}}
+                                 onClick={rentModal.onOpen}
                                  label='Airbnb my house'
                              />
                              <MenuItem 

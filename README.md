@@ -1,10 +1,10 @@
-9. use param to style category item
-    -Categories -- 
-        - user params ( useSearchParams)
-        - use pathname (pathName)
-        - get category (from params url link)
-        - use pathname to check if user in main page(home)
-        - use category === item.label( current item) --> selected --> true-->style
+10. create rent model( for button)
+ - rentModal
+    - enum --> allow you pass number
+    - function onBack ( -1)
+    - function onNaext ( +1)
+    - actionLabel --> if(value =1 --> return 'next') if last --> return 'create'
+    -secondActionLabel -->
 
 
 

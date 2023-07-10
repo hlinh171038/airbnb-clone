@@ -1,3 +1,5 @@
+"use client"
+
 import { IconType } from "react-icons";
 import Container from "../Container"
 import { useRouter, useSearchParams } from "next/navigation";
@@ -55,7 +57,7 @@ const CategoryBox: React.FC<CategoryBoxProps> =({
             items-center
             justify-center
             gap-2
-            p-3
+            p-1
             border-b-2
             hover:text-neutral-800
             transition
