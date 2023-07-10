@@ -1,10 +1,13 @@
-10. create rent model( for button)
- - rentModal
-    - enum --> allow you pass number
-    - function onBack ( -1)
-    - function onNaext ( +1)
-    - actionLabel --> if(value =1 --> return 'next') if last --> return 'create'
-    -secondActionLabel -->
+10. create rent model( take value of category)
+    - watch (react-hook-form) --> take value
+    - setValue (react-hook-form) --> to set value to defaultValue
+        (setValue in react-hook-form not set value in default) --> set thrid paramater(shouldValidate: true,
+            shouldDirty: true,
+            shouldTouch: true)
+    
+    - onLick( use method setValue to set category )
+    - selected props to change style css
+ 
 
 
 
