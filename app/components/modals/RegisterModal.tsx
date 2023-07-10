@@ -10,6 +10,7 @@ import {
     useForm
 } from 'react-hook-form'
 import {toast } from 'react-hot-toast'
+import {signIn} from 'next-auth/react'
 
 import useRegisterModal from '@/app/hooks/useRegisterModal'
 import Modal from './Modal'
@@ -98,7 +99,7 @@ const RegisterModal = () => {
             />
             <Button 
                 label="Github"
-                onClick={() =>{}}
+                onClick={() =>signIn('github')}
                 icon={AiFillGithub}
                 outline
             />
