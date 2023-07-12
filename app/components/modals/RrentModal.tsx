@@ -8,6 +8,8 @@ import CategoryInput from '../inputs/CategoryInput'
 import { Field, FieldValues, useForm } from 'react-hook-form'
 import CountrySelect from '../inputs/CountrySelect'
 import dynamic from 'next/dynamic'
+import Counter from '../inputs/Counter'
+import ImageUpload from '../inputs/ImageUpload'
 // cant not import like that because react not support --> useMeme
 //import Map from '../Map'
 
@@ -51,7 +53,10 @@ const RentModal = () =>{
     // create way to watch category , METHOD HAVE YOU TAKE VALUE (EX: CATEGORY, LOCATION,...)
     const category = watch('category');// watch(pass exactly name of value)
     const location = watch('location');
-
+    const guestCount = watch('guestCount');
+    const roomCount = watch('roomCount');
+    const bathroomCount = watch('bathroomCount');
+    const imageSrc = watch('imageSrc');
 
     // trick for Map
     const Map = useMemo(()=>dynamic(()=> import('../Map'),{
@@ -136,6 +141,48 @@ const RentModal = () =>{
         )
     }
 
+
+    if(step === STEPS.INFO){
+        bodyContent=(
+            <div className='flex flex-col gap-8'>
+                <div>
+                    <span>Share some basic about your places?</span>
+                </div>
+               <Counter 
+                title="Number of guest"
+                subtitle="How to guest do you allow ?"
+                value={guestCount}
+                onChange={(value)=> setCustomValue('guestCount',value)}
+               />
+               <Counter 
+                title="Rooms"
+                subtitle="How many room do you have?"
+                value={roomCount}
+                onChange={(value)=> setCustomValue('roomCount',value)}
+               />
+               <Counter 
+                title="Bathrooms"
+                subtitle="How many bathroom do you have?"
+                value={bathroomCount}
+                onChange={(value)=> setCustomValue('bathroomCount',value)}
+               />
+            </div>
+        )
+    }
+
+    if(step ===STEPS.IMAGES){
+        bodyContent = (
+            <div className='flex flex-col gap-4'>
+                 <div>
+                    <span>Share some basic about your places?</span>
+                </div>
+                <ImageUpload 
+                    value={imageSrc}
+                    onChange={(value)=> setCustomValue('imageSrc', value)}
+                />
+            </div>
+        )
+    }
     return <Modal 
         isOpen={rentModal.isOpen}
         onClose={rentModal.onClose}
