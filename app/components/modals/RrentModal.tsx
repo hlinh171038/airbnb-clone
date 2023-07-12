@@ -10,6 +10,7 @@ import CountrySelect from '../inputs/CountrySelect'
 import dynamic from 'next/dynamic'
 import Counter from '../inputs/Counter'
 import ImageUpload from '../inputs/ImageUpload'
+import Input from '../inputs/Input'
 // cant not import like that because react not support --> useMeme
 //import Map from '../Map'
 
@@ -25,6 +26,7 @@ enum STEPS {
 const RentModal = () =>{
     const rentModal = useRentModel()
     const [step, setStep] = useState(STEPS.CATEGORY);
+    const [isLoading,setIsLoading] = useState(false);
 
     // conenct opotion which select into our form 
     const  {
@@ -179,6 +181,34 @@ const RentModal = () =>{
                 <ImageUpload 
                     value={imageSrc}
                     onChange={(value)=> setCustomValue('imageSrc', value)}
+                />
+            </div>
+        )
+    }
+
+    if(step ===STEPS.DESCRIPTION){
+        bodyContent=(
+            <div className='flex flex-col gap-8'>
+                <div>
+                    <span>How would you descript your place ?</span>
+                </div>
+                <Input 
+                     id="title"
+                     label="Title"
+                     type="text"
+                     disabled={isLoading}
+                     required
+                     register={register}
+                     errors={errors}
+                />
+                 <Input 
+                     id="description"
+                     label="Description"
+                     type="text"
+                     disabled={isLoading}
+                     required
+                     register={register}
+                     errors={errors}
                 />
             </div>
         )
