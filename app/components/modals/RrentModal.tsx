@@ -6,6 +6,10 @@ import { useMemo, useState } from 'react'
 import { categories } from '../navbar/Categories'
 import CategoryInput from '../inputs/CategoryInput'
 import { Field, FieldValues, useForm } from 'react-hook-form'
+import CountrySelect from '../inputs/CountrySelect'
+import dynamic from 'next/dynamic'
+// cant not import like that because react not support --> useMeme
+//import Map from '../Map'
 
 enum STEPS {
     CATEGORY = 0,
@@ -46,6 +50,14 @@ const RentModal = () =>{
   
     // create way to watch category , METHOD HAVE YOU TAKE VALUE (EX: CATEGORY, LOCATION,...)
     const category = watch('category');// watch(pass exactly name of value)
+    const location = watch('location');
+
+
+    // trick for Map
+    const Map = useMemo(()=>dynamic(()=> import('../Map'),{
+        ssr:false
+    }),[location]);
+
     // create custome to set value, but method setValue(react-hook-form) by default nott set value
     const setCustomValue = (id:string, value: any) =>{
         setValue(id,value, {
@@ -105,10 +117,29 @@ const RentModal = () =>{
         
     )
 
+    if(step ===STEPS.LOCATION) {
+        bodyContent =(
+            <div className='flex flex-col gap-8'>
+                <div>
+                    <span>Which of these best description ypour places?</span>
+                    <span>Pick a category</span>
+                </div>
+                <CountrySelect
+                    value={location}
+                    onChange={(value)=>setCustomValue('location',value)}
+                />
+                {/* map recive coodinaries but map not support by react*/}
+                <Map
+                    center={location?.latlng}
+                />
+            </div>
+        )
+    }
+
     return <Modal 
         isOpen={rentModal.isOpen}
         onClose={rentModal.onClose}
-        onSubmit={rentModal.onClose}
+        onSubmit={onNext}
         actionLabel={actionLabel}
         title="Airbnb your home!"
         secondaryActionLabel={secondaryActionLabel}

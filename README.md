@@ -1,13 +1,26 @@
-10. create rent model( take value of category)
-    - watch (react-hook-form) --> take value
-    - setValue (react-hook-form) --> to set value to defaultValue
-        (setValue in react-hook-form not set value in default) --> set thrid paramater(shouldValidate: true,
-            shouldDirty: true,
-            shouldTouch: true)
+12. listing creation step 2( location setion)
+    -create RentModel and hooks to open and close model( create in first step) (not)
+    - check if ( steps === Location)
+        1.need Selected (input folder) recive( value, onChange) 
+            -useCountry hook (npm i wolrd-country)
+        2.useCountries
+            - countries.map () (data from world-country)
+                -take value.cca2, label.common, religon, latlgn, flag
+                -function getAll, getByValue --> use in SelectCountries.tsx
+        3.SelectCountries.tsx
+            - type country data (ts required)
+            - interface (value:type country date, onChange)
+            - use Selected (react-select npm)
+                - placeholder, isClearable, options(getAll), themes to change default theme, value, onChange, formatOptionLabel
     
-    - onLick( use method setValue to set category )
-    - selected props to change style css
- 
+
+
+    -Map corresponse with select (npm i leaflet)
+        -rentmodel.tsx () pass props coodinary (location?.latlng) 
+            (but leaflet not support by react)
+        - 
+
+
 
 
 

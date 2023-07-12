@@ -6,6 +6,7 @@ import Search from "./Search"
 import UserMenu from "./UserMenu"
 import { User } from "@prisma/client"
 import Categories from "./Categories"
+import Image from "next/image"
 
 interface NavbarProps {
     currentUser?: User | null
