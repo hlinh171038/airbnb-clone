@@ -72,9 +72,9 @@ const ListingCard:React.FC<ListingCardProps>=({
             <div className="flex flex-col gap-2 w-full relative overflow-hidden rounded-xl">
                 <Image 
                     src={data.imageSrc}
-                    width={50}
                     alt="Listing"
-                    height={50}
+                    width={50}
+                    height={30}
                     className="
                         group-hover:scale-110
                         transition
