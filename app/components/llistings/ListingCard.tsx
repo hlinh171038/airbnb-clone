@@ -2,12 +2,12 @@
 
 import { Listing, Reservation, User } from "@prisma/client";
 import { useRouter } from "next/navigation";
-import useCountries from "../hooks/useCountries";
+import useCountries from "../../hooks/useCountries";
 import { useCallback, useEffect, useMemo } from "react";
 import {format} from 'date-fns'
 import Image from "next/image";
-import HeartButton from "./HeartButton";
-import Button from "./Button";
+import HeartButton from "../HeartButton";
+import Button from "../Button";
 
 interface ListingCardProps {
     reservation?: Reservation;

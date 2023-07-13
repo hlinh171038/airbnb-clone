@@ -3,7 +3,7 @@ import Container from './components/Container'
 import EmptyState from './components/EmptyState';
 import getListing from './actions/getListing';
 import getCurrentUser from './actions/getCurrentUser';
-import ListingCard from './components/ListingCard';
+import ListingCard from './components/llistings/ListingCard';
 
 export default async function Home() {
   const listing = await getListing();
