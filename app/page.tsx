@@ -1,6 +1,50 @@
+import ClientOnly from './components/ClientOnly'
+import Container from './components/Container'
+import EmptyState from './components/EmptyState';
+import getListing from './actions/getListing';
+import getCurrentUser from './actions/getCurrentUser';
+import ListingCard from './components/ListingCard';
 
-export default function Home() {
+export default async function Home() {
+  const listing = await getListing();
+  const currentUser = await getCurrentUser()
+  // const isEmpty = true;
+   
+
+  if(listing.length === 0){
+    return (
+      <ClientOnly>
+        <EmptyState showReset />
+      </ClientOnly>
+    )
+  }
   return (
-    <div  className="text-rose-500">hello linh</div>
+    <ClientOnly>
+      <Container>
+        <div className='
+          pt-24
+          grid
+          grid-cols-1
+          sm:grid-cols-2
+          md:grid-cols-3
+          lg:grid-cols-4
+          xl:grid-cols-5
+          2xl:grid-cols-6
+          gap-8
+        '
+        >
+          {listing && listing.map((list:any)=>{
+            return (
+             <ListingCard
+              currentUser={currentUser}
+              key={list.id}
+              data={list}
+              />
+            )
+          })}
+        </div>
+
+      </Container>
+    </ClientOnly>
   )
 }
