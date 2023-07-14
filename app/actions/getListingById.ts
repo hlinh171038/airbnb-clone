@@ -24,18 +24,18 @@ export default async function getListingById(
             return null;
         }
 
-        return {
-            ...listing,
-            createAt: listing.createdAt.toISOString(),
-            user: {
-                ...listing.user,
-                createAt: listing.user.createdAt.toISOString(),
-                updateAt: listing.user.updatedAt.toISOString(),
-                emailVerified:
-                    listing.user.emailVarified?.toISOString() || null
-            }
-        }
-        // return listing
+        // return {
+        //     ...listing,
+        //     createdAt: listing.createdAt.toISOString(),
+        //     user: {
+        //         ...listing.user,
+        //         createdAt: listing.user.createdAt.toISOString(),
+        //         updatedAt: listing.user.updatedAt.toISOString(),
+        //         emailVerified:
+        //             listing.user.emailVarified?.toISOString() || null
+        //     }
+        // }
+        return listing
 
     } catch (error: any) {
         throw new Error(error);

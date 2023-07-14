@@ -9,6 +9,7 @@ import useRentModal from '@/app/hooks/useRentModal'
 import {User} from '@prisma/client'
 import {signOut} from 'next-auth/react'
 import { SafeUser } from '@/app/types'
+import { useRouter } from 'next/navigation'
 
 
 
@@ -24,6 +25,7 @@ const UserMenu:React.FC<UserMenuProps>= ({
     const loginModal = useLoginModal()
     const rentModal = useRentModal()
     const [isOpen,setIsOpen] = useState<boolean>(false) 
+    const router = useRouter()
     
     // when click to rent 
     const onRent = useCallback(()=>{
@@ -92,7 +94,7 @@ const UserMenu:React.FC<UserMenuProps>= ({
                        {currentUser ?(
                              <>
                              <MenuItem 
-                                 onClick={()=>{}}
+                                 onClick={()=>router.push('/trips')}
                                  label='My trips'
                              />
                              <MenuItem 

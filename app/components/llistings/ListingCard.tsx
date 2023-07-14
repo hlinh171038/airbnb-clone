@@ -8,15 +8,16 @@ import {format} from 'date-fns'
 import Image from "next/image";
 import HeartButton from "../HeartButton";
 import Button from "../Button";
+import { SafeReservation, SafeListing } from "@/app/types";
 
 interface ListingCardProps {
-    reservation?: Reservation;
+    reservation?: SafeReservation;
     onAction?: (id: string) => void;
     disabled?:boolean;
     actionLabel?: string;
     actionId?:string;
     currentUser: User | null;
-    data:Listing;
+    data:SafeListing;
 }
 
 const ListingCard:React.FC<ListingCardProps>=({
