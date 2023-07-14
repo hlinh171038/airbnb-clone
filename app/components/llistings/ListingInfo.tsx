@@ -8,6 +8,7 @@ import Image from "next/image";
 import ListingCategory from "./ListingCategory";
 import dynamic from "next/dynamic";
 
+
 const Map = dynamic(()=>import('../Map'),{
     ssr: false
 });
@@ -54,12 +55,14 @@ const ListingInfo:React.FC<ListingInfoProps> = ({
                     "
                 >
                     <div>Hosted by {user?.name}</div>
-                    {/* <Image 
-                        src={user?.image }
+                    <Image 
+                        src="/images/placeholder.jpg"
                         width={50}
                         height={50}
                         alt="avatar"
-                    /> */}
+                        className='rounded-full ml-2'
+                    />
+                    
                 </div>
                 <div
                     className="
