@@ -35,7 +35,7 @@ const UserMenu:React.FC<UserMenuProps>= ({
         }
         // if loggined --> hook to open the rent model
         rentModal.onOpen()
-    },[currentUser,loginModal])
+    },[currentUser,loginModal,rentModal])
   
     const toggleOpen = useCallback(()=> {
         setIsOpen((value)=>!value)

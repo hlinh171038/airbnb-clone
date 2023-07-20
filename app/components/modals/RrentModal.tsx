@@ -67,7 +67,7 @@ const RentModal = () =>{
     // trick for Map
     const Map = useMemo(()=>dynamic(()=> import('../Map'),{
         ssr:false
-    }),[location]);
+    }),[]);
 
     // create custome to set value, but method setValue(react-hook-form) by default nott set value
     const setCustomValue = (id:string, value: any) =>{

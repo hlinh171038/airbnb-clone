@@ -55,7 +55,7 @@ const useFavorite=  ({
         } catch (error) {
             toast.error('Something went wrong.');
         }
-    },[currentUser,loginModal, hasFavorited, router]);
+    },[currentUser,loginModal, hasFavorited, router,listingId]);
 
     return {
         hasFavorited,
